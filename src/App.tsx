@@ -1,4 +1,5 @@
 import { Box, Grid, GridItem } from '@chakra-ui/react'
+import InputFields from './components/InputFields'
 
 export default function App() {
   return (
@@ -16,10 +17,14 @@ export default function App() {
           rowSpan={2}
           colSpan={1}
           display={{ base: 'none', md: 'block' }}
-          bg="tomato"
+          bg="gray.800"
         />
-        <GridItem colSpan={2} bg="papayawhip" />
-        <GridItem colSpan={2} bg="papayawhip" />
+
+        <GridItem colSpan={2} bg="gray.800">
+          <InputFields />
+        </GridItem>
+
+        <GridItem colSpan={2} bg="gray.800" />
       </Grid>
     </Box>
   )

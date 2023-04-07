@@ -1,53 +1,26 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/tauri";
-import "./App.css";
+import { Box, Grid, GridItem } from '@chakra-ui/react'
 
-function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
-
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    setGreetMsg(await invoke("greet", { name }));
-  }
-
+export default function App() {
   return (
-    <div className="container">
-      <h1>Welcome to Tauri!</h1>
-
-      <div className="row">
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
-
-      <div className="row">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            greet();
-          }}
-        >
-          <input
-            id="greet-input"
-            onChange={(e) => setName(e.currentTarget.value)}
-            placeholder="Enter a name..."
-          />
-          <button type="submit">Greet</button>
-        </form>
-      </div>
-      <p>{greetMsg}</p>
-    </div>
-  );
+    <Box bg="gray.900" h="100vh" color="white" p="5">
+      <Grid
+        h="100%"
+        templateRows="repeat(2, 1fr)"
+        gap={4}
+        templateColumns={{
+          base: 'repeat(1, 1fr)',
+          md: 'repeat(3, 1fr)',
+        }}
+      >
+        <GridItem
+          rowSpan={2}
+          colSpan={1}
+          display={{ base: 'none', md: 'block' }}
+          bg="tomato"
+        />
+        <GridItem colSpan={2} bg="papayawhip" />
+        <GridItem colSpan={2} bg="papayawhip" />
+      </Grid>
+    </Box>
+  )
 }
-
-export default App;

@@ -1,0 +1,5 @@
+build
+coverage
+src-tauri
+node_modules
+target

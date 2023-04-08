@@ -1,4 +1,6 @@
+import Editor from '@monaco-editor/react'
 import { Box, Grid, GridItem } from '@chakra-ui/react'
+
 import InputFields from './components/InputFields'
 
 export default function App() {
@@ -22,6 +24,8 @@ export default function App() {
 
         <GridItem colSpan={2} bg="gray.800">
           <InputFields />
+
+          <Editor height="200px" language="json" value="" theme="vs-dark" />
         </GridItem>
 
         <GridItem colSpan={2} bg="gray.800" />
